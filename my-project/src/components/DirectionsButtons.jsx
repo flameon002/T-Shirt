@@ -46,10 +46,6 @@ const DirectionsButtons = () => {
           </button>
         </div>
       </div>
-      {/* <div>
-        <button onClick={() => updatePosition("positionY", 0.01)}>max</button>
-        <button onClick={() => updatePosition("positionY", -0.01)}>min</button>
-      </div> */}
     </>
   );
 };
