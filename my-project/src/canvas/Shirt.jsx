@@ -16,6 +16,7 @@ const Shirt = () => {
   const positionX = snap.positionX;
   const positionZ = snap.positionZ;
   const scale = snap.scale;
+  const rotation = snap.rotation;
 
   useFrame((state, delta) =>
     easing.dampC(materials.lambert1.color, snap.color, 0.25, delta)
@@ -48,7 +49,7 @@ const Shirt = () => {
         {snap.isLogoTexture && (
           <Decal
             position={[ positionX, positionY,positionZ]}
-            rotation={[0, 0, 0.27]}
+            rotation={[0, 0, rotation]}
             scale={scale}
             map={logoTexture}
             anisotropy={16}

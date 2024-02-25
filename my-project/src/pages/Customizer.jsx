@@ -168,7 +168,7 @@ const Customizer = () => {
             ))}
           </motion.div>
 
-          <motion.div className="absolute h-14 w-14 bottom-24 right-8 flex mb-36 mx-36" {...fadeAnimation}>
+          <motion.div className="absolute bottom-24 right-4 flex mb-[50vh]" {...fadeAnimation}>
             {/* {/* <div className="relative h-32 w-32"> */}
               <div className="">
                 <DirectionsButtons />
