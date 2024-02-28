@@ -16,7 +16,14 @@ export const reader = (file) =>
     fileReader.onload = () => resolve(fileReader.result);
     fileReader.readAsDataURL(file);
   });
-
+// export const reader = (file) => {
+//   return new Promise((resolve, reject) => {
+//     const fileReader = new FileReader();
+//     fileReader.onload = () => resolve(fileReader.result);
+//     fileReader.onerror = () => reject(new Error('Error al leer el archivo'));
+//     fileReader.readAsDataURL(file);
+//   });
+// };
 export const getContrastingColor = (color) => {
   // Remove the '#' character if it exists
   const hex = color.replace("#", "");

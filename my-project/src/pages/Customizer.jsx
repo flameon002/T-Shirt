@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
 
 import config from "../config/config";
-import state from "../store";
+import state, { createNewObject } from "../store";
 import { download } from "../assets";
 import { downloadCanvasToImage, reader } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
@@ -20,8 +20,10 @@ import DirectionsButtons from "../components/DirectionsButtons";
 const Customizer = () => {
   const snap = useSnapshot(state);
 
+  // function handleClick() {
+  // }
   const [file, setFile] = useState("");
-
+  // createNewObject(file);
   const [prompt, setPrompt] = useState("");
   const [generatingImg, setGeneratingImg] = useState(false);
 
@@ -37,7 +39,14 @@ const Customizer = () => {
       case "colorpicker":
         return <ColorPicker />;
       case "filepicker":
-        return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
+        return (
+          <FilePicker
+            file={file}
+            setFile={setFile}
+            readFile={readFile}
+            // createNewObject={file}
+          />
+        );
       case "aipicker":
         return (
           <AIPicker
@@ -92,13 +101,13 @@ const Customizer = () => {
   const handleActiveFilterTab = (tabName) => {
     switch (tabName) {
       case "logoShirt":
-        state.isLogoTexture = !activeFilterTab[tabName];
+        state.logos.LogoTexture.isLogoTexture = !activeFilterTab[tabName];
         break;
       case "stylishShirt":
         state.isFullTexture = !activeFilterTab[tabName];
         break;
       default:
-        state.isLogoTexture = true;
+        state.logos.LogoTexture.isLogoTexture = true;
         state.isFullTexture = false;
         break;
     }
@@ -114,10 +123,14 @@ const Customizer = () => {
   };
 
   const readFile = (type) => {
-    reader(file).then((result) => {
-      handleDecals(type, result);
-      setActiveEditorTab("");
-    });
+    reader(file)
+      .then((result) => {
+        handleDecals(type, result);
+        setActiveEditorTab("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -144,12 +157,15 @@ const Customizer = () => {
             </div>
           </motion.div>
 
-          <motion.div className="absolute top-12 right-12" {...fadeAnimation}>
+          <motion.div
+            className="absolute top-[9vh] right-12 mx-5"
+            {...fadeAnimation}
+          >
             <CustomButton
               type="filled"
               title="Go Back"
               handleClick={() => (state.intro = true)}
-              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+              customStyles="w-fit px-8 py-4 font-bold text-sm"
             />
           </motion.div>
 
@@ -168,12 +184,13 @@ const Customizer = () => {
             ))}
           </motion.div>
 
-          <motion.div className="absolute bottom-24 right-4 flex mb-[50vh]" {...fadeAnimation}>
-            {/* {/* <div className="relative h-32 w-32"> */}
-              <div className="">
-                <DirectionsButtons />
-              </div>
-            {/* </div> */}
+          <motion.div
+            className="absolute bottom-24 right-4 flex mb-[63vh]"
+            {...fadeAnimation}
+          >
+            <div className="">
+              <DirectionsButtons />
+            </div>
           </motion.div>
         </>
       )}

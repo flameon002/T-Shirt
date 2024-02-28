@@ -10,18 +10,45 @@ const Shirt = () => {
   const snap = useSnapshot(state);
   const { nodes, materials } = useGLTF("/shirt_baked.glb");
 
-  const logoTexture = useTexture(snap.logoDecal);
-  const fullTexture = useTexture(snap.fullDecal);
-  const positionY = snap.positionY;
-  const positionX = snap.positionX;
-  const positionZ = snap.positionZ;
-  const scale = snap.scale;
-  const rotation = snap.rotation;
-
   useFrame((state, delta) =>
     easing.dampC(materials.lambert1.color, snap.color, 0.25, delta)
   );
 
+  // Loop through logos and render Decals if necessary
+  // const logoDecals = [];
+  // // console.log(logoDecals);
+  // for (const logoKey in snap.logos) {
+  //   if (snap.logos[logoKey].isLogoTexture) {
+  //     const logoData = snap.logos[logoKey];
+  //     const logoTexture = useTexture(logoData.logoDecal);
+  //     logoDecals.push(
+  //       <Decal
+  //         position={[
+  //           positionX,
+  //           positionY,
+  //           positionZ,
+  //         ]}
+  //         rotation={[0, 0, rotation]}
+  //         scale={scale}
+  //         map={logoTexture}
+  //         anisotropy={16}
+  //         depthTest={false}
+  //         depthWrite={true}
+  //       />
+  //     );
+  //   }
+  // }
+
+
+  const logoArray = Object.values(snap.logos).filter(
+    (logoObj) => logoObj.isLogoTexture
+  );
+
+
+  const logosArray = Array.isArray(logoArray)
+
+  console.log(Object.values(snap));
+  // console.log(logosArray);
   const stateString = JSON.stringify(snap);
 
   return (
@@ -34,7 +61,6 @@ const Shirt = () => {
         material={materials.lambert1}
         material-roughness={1}
         dispose={null}
-        
         position={[0.75, 0, 0]}
       >
         {snap.isFullTexture && (
@@ -42,21 +68,27 @@ const Shirt = () => {
             position={[0, 0, 0]}
             rotation={[0, 0, 0]}
             scale={1}
-            map={fullTexture}
+            map={useTexture(snap.fullDecal)} // Use dedicated useTexture call
           />
         )}
-{/* 0, 0.04, 0.15 */}
-        {snap.isLogoTexture && (
-          <Decal
-            position={[ positionX, positionY,positionZ]}
-            rotation={[0, 0, rotation]}
-            scale={scale}
-            map={logoTexture}
-            anisotropy={16}
-            depthTest={false}
-            depthWrite={true}
-          />
-        )}
+        {/* {logoDecals} */}
+        {logoArray.map((logo, index) => {
+        if (logo.isLogoTexture) {
+          return (
+            <Decal
+              key={index}
+              logoDecal={logo.logoDecal}
+              isLogoTexture={logo.isLogoTexture}
+              positionX={logo.positionX}
+              positionY={logo.positionY}
+              positionZ={logo.positionZ}
+              scale={logo.scale}
+              rotation={logo.rotation}
+            />
+          );
+        }
+        return null;
+      })}
       </mesh>
     </group>
   );

@@ -7,6 +7,7 @@ import CameraRig from "./CameraRig";
 import Shirt2 from "./Shirt2";
 
 const CanvasModel = () => {
+  const LogoTexture = "LogoTexture"
   return (
     <Canvas
       shadows
@@ -17,12 +18,8 @@ const CanvasModel = () => {
       <ambientLight intensity={0.1} />
       <Environment preset="city" />
 
-      <Backdrop />
       <Center>
-        {/* <CameraRig> */}
-        <Shirt />
-        {/* <Shirt2 /> */}
-        {/* </CameraRig> */}
+        <Shirt/>
         <OrbitControls
           makeDefault
           enablePan={false}
@@ -30,6 +27,7 @@ const CanvasModel = () => {
           minDistance={0.45}
         />
       </Center>
+      <Backdrop />
     </Canvas>
   );
 };
