@@ -40,15 +40,15 @@ const Shirt = () => {
   // }
 
 
-  const logoArray = Object.values(snap.logos).filter(
+  const logoArray = Object.values(snap).filter(
     (logoObj) => logoObj.isLogoTexture
   );
 
 
   const logosArray = Array.isArray(logoArray)
 
-  console.log(Object.values(snap));
-  // console.log(logosArray);
+  console.log(snap);
+  console.log(logosArray);
   const stateString = JSON.stringify(snap);
 
   return (
