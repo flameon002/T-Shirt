@@ -43,7 +43,7 @@ const Shirt = () => {
             rotation={[0, 0, 0]}
             scale={1}
             map={fullTexture}
-          />
+          />spaojdfaspjdapiodjapolskapdolkapdkaspo
         )}
 {/* 0, 0.04, 0.15 */}
         {snap.isLogoTexture && (
