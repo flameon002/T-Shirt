@@ -3,8 +3,6 @@ import { Environment, Center, OrbitControls } from "@react-three/drei";
 
 import Shirt from "./Shirt";
 import Backdrop from "./Backdrop";
-import CameraRig from "./CameraRig";
-import Shirt2 from "./Shirt2";
 
 const CanvasModel = () => {
   return (
@@ -19,10 +17,7 @@ const CanvasModel = () => {
 
       <Backdrop />
       <Center>
-        {/* <CameraRig> */}
         <Shirt />
-        {/* <Shirt2 /> */}
-        {/* </CameraRig> */}
         <OrbitControls
           makeDefault
           enablePan={false}

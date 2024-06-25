@@ -34,7 +34,6 @@ const Shirt = () => {
         material={materials.lambert1}
         material-roughness={1}
         dispose={null}
-        
         position={[0.75, 0, 0]}
       >
         {snap.isFullTexture && (
@@ -42,20 +41,33 @@ const Shirt = () => {
             position={[0, 0, 0]}
             rotation={[0, 0, 0]}
             scale={1}
+          >
+          <meshStandardMaterial
+            transparent
+            polygonOffset
             map={fullTexture}
-          />spaojdfaspjdapiodjapolskapdolkapdkaspo
+            map-anisotropy={16}
+            roughness={1}
+            toneMapped={false}
+          /></Decal>
         )}
-{/* 0, 0.04, 0.15 */}
+        {/* 0, 0.04, 0.15 */}
         {snap.isLogoTexture && (
           <Decal
-            position={[ positionX, positionY,positionZ]}
+            position={[positionX, positionY, positionZ]}
             rotation={[0, 0, rotation]}
-            scale={scale}
-            map={logoTexture}
-            anisotropy={16}
-            depthTest={false}
-            depthWrite={true}
-          />
+            scale={[scale,scale, 0.3]}
+          >
+            <meshPhysicalMaterial
+              transparent
+              polygonOffset
+              polygonOffsetFactor={-10}
+              map={logoTexture}
+              map-anisotropy={16}
+              roughness={1}
+              toneMapped={false}
+            />
+          </Decal>
         )}
       </mesh>
     </group>
