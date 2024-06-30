@@ -8,12 +8,7 @@ import { download } from "../assets";
 import { downloadCanvasToImage, reader } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
-import {
-  ColorPicker,
-  CustomButton,
-  FilePicker,
-  Tab,
-} from "../components";
+import { ColorPicker, CustomButton, FilePicker, Tab } from "../components";
 import DirectionsButtons from "../components/DirectionsButtons";
 
 const Customizer = () => {
@@ -76,6 +71,14 @@ const Customizer = () => {
       setGeneratingImg(false);
       setActiveEditorTab("");
     }
+  };
+
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.setAttribute('download', 'canvas.png');
+    link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'));
+    link.click();
   };
 
   const handleDecals = (type, result) => {
@@ -167,12 +170,27 @@ const Customizer = () => {
             ))}
           </motion.div>
 
-          <motion.div className="absolute bottom-24 right-4 flex mb-[50vh]" {...fadeAnimation}>
+          <motion.div
+            className="absolute bottom-24 right-4 flex mb-[50vh]"
+            {...fadeAnimation}
+          >
             {/* {/* <div className="relative h-32 w-32"> */}
-              <div className="">
-                <DirectionsButtons />
-              </div>
+            <div className="">
+              <DirectionsButtons />
+            </div>
             {/* </div> */}
+          </motion.div>
+
+          <motion.div
+            className="absolute bottom-24 right-4 flex mb-[50vh]"
+            {...fadeAnimation}
+          >
+            <button
+              className="bg-orange-600/70 m-4 p-4 rounded-xl"
+              onClick={handleDownload}
+            >
+              DOWNLOAD
+            </button>
           </motion.div>
         </>
       )}
