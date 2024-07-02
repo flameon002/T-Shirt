@@ -32,52 +32,57 @@ const Customizer = () => {
         return <ColorPicker />;
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
-      case "aipicker":
-        return (
-          <AIPicker
-            prompt={prompt}
-            setPrompt={setPrompt}
-            generatingImg={generatingImg}
-            handleSubmit={handleSubmit}
-          />
-        );
+      // case "aipicker":
+      //   return (
+      //     <AIPicker
+      //       prompt={prompt}
+      //       setPrompt={setPrompt}
+      //       generatingImg={generatingImg}
+      //       handleSubmit={handleSubmit}
+      //     />
+      //   );
       default:
         return null;
     }
   };
 
-  const handleSubmit = async (type) => {
-    if (!prompt) return alert("Please enter a prompt");
+  // const handleSubmit = async (type) => {
+  //   if (!prompt) return alert("Please enter a prompt");
 
-    try {
-      setGeneratingImg(true);
+  //   try {
+  //     setGeneratingImg(true);
 
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt,
-        }),
-      });
+  //     const response = await fetch("http://localhost:8080/api/v1/dalle", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         prompt,
+  //       }),
+  //     });
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      handleDecals(type, `data:image/png;base64,${data.photo}`);
-    } catch (error) {
-      alert(error);
-    } finally {
-      setGeneratingImg(false);
-      setActiveEditorTab("");
-    }
-  };
-
+  //     handleDecals(type, `data:image/png;base64,${data.photo}`);
+  //   } catch (error) {
+  //     alert(error);
+  //   } finally {
+  //     setGeneratingImg(false);
+  //     setActiveEditorTab("");
+  //   }
+  // };
 
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.setAttribute('download', 'canvas.png');
-    link.setAttribute('href', document.querySelector('canvas').toDataURL('image/png').replace('image/png', 'image/octet-stream'));
+    const link = document.createElement("a");
+    link.setAttribute("download", "canvas.png");
+    link.setAttribute(
+      "href",
+      document
+        .querySelector("canvas")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream")
+    );
     link.click();
   };
 
@@ -146,7 +151,7 @@ const Customizer = () => {
             </div>
           </motion.div>
 
-          <motion.div className="absolute top-12 right-12" {...fadeAnimation}>
+          <motion.div className="absolute top-20 right-12" {...fadeAnimation}>
             <CustomButton
               type="filled"
               title="Go Back"
@@ -156,7 +161,10 @@ const Customizer = () => {
           </motion.div>
 
           <motion.div
-            className="filtertabs-container"
+            // className="filtertabs-container"
+            // className="absolute bottom-5 right-0 left-0 flex gap-4"
+
+            className=" absolute flex mx-[46%] p-3 flex-row bottom-5 glassmorphism rounded-md gap-3"
             {...slideAnimation("up")}
           >
             {FilterTabs.map((tab) => (
@@ -174,22 +182,18 @@ const Customizer = () => {
             className="absolute bottom-24 right-4 flex mb-[50vh]"
             {...fadeAnimation}
           >
-            {/* {/* <div className="relative h-32 w-32"> */}
-            <div className="">
-              <DirectionsButtons />
-            </div>
-            {/* </div> */}
+            <DirectionsButtons />
           </motion.div>
 
           <motion.div
-            className="absolute bottom-24 right-4 flex mb-[50vh]"
+            className="absolute bottom-0 right-4 flex "
             {...fadeAnimation}
           >
             <button
-              className="bg-orange-600/70 m-4 p-4 rounded-xl"
+              className="bg-orange-600/70 m-5 p-5 rounded-xl"
               onClick={handleDownload}
             >
-              DOWNLOAD
+              DOWNLOAD IMAGE
             </button>
           </motion.div>
         </>
