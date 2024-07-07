@@ -4,14 +4,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import NotFoundPage from "./pages/NotFoundPage";
+import Landing from "./pages/Landing";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Landing/>,
     errorElement : <NotFoundPage />
   },{
-    // path:'/customizer',
+    path:'/customizer',
+    element: <App />,
     // element:<CustomizerHome/>
   },
 ]);

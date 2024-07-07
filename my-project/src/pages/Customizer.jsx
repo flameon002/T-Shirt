@@ -128,7 +128,7 @@ const Customizer = () => {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence >
       {!snap.intro && (
         <>
           <motion.div
@@ -164,6 +164,7 @@ const Customizer = () => {
             // className="filtertabs-container"
             // className="absolute bottom-5 right-0 left-0 flex gap-4"
 
+            onClick={() => setActiveEditorTab("")}
             className=" absolute flex mx-[46%] p-3 flex-row bottom-5 glassmorphism rounded-md gap-3"
             {...slideAnimation("up")}
           >
@@ -181,6 +182,7 @@ const Customizer = () => {
           <motion.div
             className="absolute bottom-24 right-4 flex mb-[50vh]"
             {...fadeAnimation}
+            onClick={() => setActiveEditorTab("")}
           >
             <DirectionsButtons />
           </motion.div>
