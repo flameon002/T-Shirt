@@ -7,13 +7,25 @@ export default function Component() {
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 ">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <div className="space-y-4">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-200 mb-16">
-                  Personalización de logotipos y camisetas
-                </h1>
-                <p className="text-muted-foreground md:text-xl text-gray-400">
-                  Deja volar tu creatividad con un sinfin de posibilidades de como se vería tu camiseta con tu logo o diseño personalizado.
-                </p>
+              <div className="">
+                <div className="flex flex-col ">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-200 mb-16">
+                    Personalización de logotipos y camisetas
+                  </h1>
+                  <p className="text-muted-foreground md:text-xl text-gray-400 mb-20">
+                    Deja volar tu creatividad con un sinfin de posibilidades de
+                    como se vería tu camiseta con tu logo o diseño
+                    personalizado.
+                  </p>
+                  <div className="mx-auto my-6">
+                    <a
+                      href="/customizer"
+                      className=" bg-orange-500 p-6 px-10 md:px-16 rounded-xl text-2xl hover:bg-orange-400  "
+                    >
+                      Comenzar
+                    </a>
+                  </div>
+                </div>
               </div>
               <img
                 src="/bg.jpg"
@@ -23,6 +35,27 @@ export default function Component() {
             </div>
           </div>
         </section>
+
+        <section >
+          <div className="flex w-[900px] mx-auto items-center justify-center relative">
+            <img
+              src="/canvas (2).png"
+              alt="canvas"
+              className="h-[20rem] absolute top-0 left-20 overflow-hidden "
+            />
+            <img
+              src="/canvas (2).png"
+              alt="canvas"
+              className="h-[20rem] absolute top-0 left-0 overflow-hidden "
+            />
+            <img
+              src="/canvas (2).png"
+              alt="canvas"
+              className="h-[20rem]  overflow-hidden "
+            />
+          </div>
+        </section>
+
         <section
           id="services"
           className="w-full py-12 md:py-24 lg:py-32 bg-muted"
@@ -30,7 +63,7 @@ export default function Component() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-gray-200">
+                <h2 className="text-3xl font-bold  sm:text-4xl tracking-wide text-gray-200">
                   Servicio
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -128,9 +161,8 @@ export default function Component() {
                   Muestra tus resultados a tus clientes
                 </h3>
                 <p className="text-muted-foreground md:text-xl/relaxed">
-                  Implementamos uma solução de Business Intelligence para uma
-                  empresa de logística, permitindo uma tomada de decisão mais
-                  assertiva com base em dados.
+                  Implementa una solucion para mostrar tus diseños a tus
+                  clientes antes de comenzar
                 </p>
               </div>
               <img
@@ -143,9 +175,7 @@ export default function Component() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">
-          &copy; 2024 Malheiros.tech. Todos os direitos reservados.
-        </p>
+        <p className="text-xs text-muted-foreground">&copy; 2024 LauDev</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <a
             href="#"

@@ -195,7 +195,7 @@ const Customizer = () => {
               className="bg-orange-600/70 hover:bg-orange-500 m-5 p-5 rounded-xl"
               onClick={handleDownload}
             >
-              DOWNLOAD IMAGE
+              DESCARGAR IMAGEN
             </button>
           </motion.div>
         </>

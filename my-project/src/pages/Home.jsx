@@ -19,8 +19,8 @@ const Home = () => {
         <motion.section className="home" {...slideAnimation("left")}>
           <motion.div className="home-content" {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
-              <h1 className=" text-tomato-600 text-9xl font-black">
-                LET'S <br className="xl:block hidden" /> DO IT.
+              <h1 className=" text-orange-400 text-8xl font-black">
+                Comencemos <br className="xl:block hidden" /> A diseñar
               </h1>
             </motion.div>
             <motion.div
@@ -28,16 +28,16 @@ const Home = () => {
               className="flex flex-col gap-5"
             >
               <p className="max-w-md font-normal text-white text-xl ">
-                Create your unique and exclusive shirt with our brand-new 3D
-                customization tool. <strong>Unleash your imagination</strong>{" "}
-                and define your own style.
+                Crea tu camiseta única y exclusiva con nuestra nueva herramienta
+                de personalización 3D. <strong>Da rienda suelta a tu imaginación </strong>
+                y define tu propio estilo.
               </p>
 
               <CustomButton
                 type="filled"
-                title="Customize It"
+                title="Customizar"
                 handleClick={() => (state.intro = false)}
-                customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+                customStyles="w-fit px-4 py-2.5 font-bold text-xl"
               />
             </motion.div>
           </motion.div>
