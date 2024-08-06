@@ -35,34 +35,34 @@ export default function Component() {
         <section>
           <div className="mt-12 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             <img
-              src="/canvas (2).png"
+              src="/canvas.png"
               alt="T-shirt design 1"
-              className="rounded-lg bg-gray-700/30 hover:scale-105"
+              className="rounded-lg bg-gray-700/30 hover:scale-105 aspect-[16/16]"
             />
             <img
-              src="/canvas (2).png"
+              src="/canvas (8).png"
               alt="T-shirt design 1"
-              className="rounded-lg bg-gray-700/30 hover:scale-105"
+              className="rounded-lg bg-gray-700/30 aspect-[16/9] hover:scale-105"
             />
             <img
-              src="/canvas (2).png"
+              src="/canvas (3).png"
               alt="T-shirt design 1"
-              className="rounded-lg bg-gray-700/30 hover:scale-105"
+              className="rounded-lg bg-gray-700/30 aspect-[16/9] hover:scale-105"
             />
             <img
-              src="/canvas (2).png"
+              src="/canvas (4).png"
               alt="T-shirt design 1"
-              className="rounded-lg bg-gray-700/30 hover:scale-105"
+              className="rounded-lg bg-gray-700/30 aspect-[16/9] hover:scale-105"
             />
             <img
-              src="/canvas (2).png"
+              src="/canvas (5).png"
               alt="T-shirt design 1"
-              className="rounded-lg bg-gray-700/30 hover:scale-105"
+              className="rounded-lg bg-gray-700/30 aspect-[16/9] hover:scale-105"
             />
             <img
-              src="/canvas (2).png"
+              src="/canvas(6).png"
               alt="T-shirt design 1"
-              className="rounded-lg bg-gray-700/30 hover:scale-105"
+              className="rounded-lg bg-gray-700/30 aspect-[16/9]  hover:scale-105"
             />
           </div>
         </section>
@@ -228,6 +228,79 @@ export default function Component() {
             </div>
           </div>
         </section>
+
+
+        <section>
+          <div className="mt-12 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <img
+              src="/canvas.png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 hover:scale-105 aspect-[9/16]"
+            />
+            <img
+              src="/canvas (8).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas (3).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas (4).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas (5).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas(6).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+          </div>
+        </section>
+
+        
+        <section>
+          <div className="mt-12 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <img
+              src="/canvas.png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 hover:scale-105 aspect-[5/3]"
+            />
+            <img
+              src="/canvas (8).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas (3).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas (4).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas (5).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+            <img
+              src="/canvas(6).png"
+              alt="T-shirt design 1"
+              className="rounded-lg bg-gray-700/30 aspect-[5/3] hover:scale-105"
+            />
+          </div>
+        </section>
+
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">&copy; 2024 LauDev</p>

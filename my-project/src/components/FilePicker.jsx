@@ -13,9 +13,9 @@ const FilePicker = ({ file, setFile, readFile }) => {
           onChange={(e) => setFile(e.target.files[0])}
         />
         <label htmlFor="file-upload" className="filepicker-label">
-          Upload File
+          Subir Imagen
         </label>
-        <p className="  max-w-xs " >{file === "" ? "No file selected" : file.name}</p>
+        <p className="  max-w-xs " >{file === "" ? "Sin archivo seleccionado" : file.name}</p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-3">
